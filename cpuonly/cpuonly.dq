@@ -45,9 +45,8 @@ function InitMemRegions():
         destaddr    = recp[1]^
         destaddrend = recp[2]^
 
-        // copy
         while destaddr < destaddrend:
-            destaddr^ = loadaddr^
+            destaddr^ = loadaddr^  // copy data
             loadaddr += 1
             destaddr += 1
         endwhile
@@ -63,7 +62,6 @@ function InitMemRegions():
         destaddr    = recp[0]^
         destaddrend = recp[1]^
 
-        // copy
         while destaddr < destaddrend:
             destaddr^ = 0
             destaddr += 1
