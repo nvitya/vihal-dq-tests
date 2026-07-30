@@ -2,81 +2,16 @@
 // compile with:
 // dq-comp --target=arm_m7f-bare -O0 -g test1.dq
 
+use ./armm_startup
+use ./armm_vector_table
+
 var g_hbcnt : int = 0
-
-function soft_entry()  [[cexport, asm]]:
-    ldr    r0, =__stack
-    mov    sp, r0
-
-    mov    r0, #1
-    b      _start
-endfunc
-
-function cold_entry()  [[cexport, asm]]:
-    ldr    r0, =__stack
-    mov    sp, r0
-
-    mov    r0, #0
-    b      _start
-endfunc
-
-// Data and Bss regions defined in the VIHAL linker script
-// The linker symbols are just addresses without data
-var __data_regions_array_start : ^uint  [[external('__data_regions_array_start')]]
-var __data_regions_array_end   : ^uint  [[external('__data_regions_array_end')]]
-var __bss_regions_array_start  : ^uint  [[external('__bss_regions_array_start')]]
-var __bss_regions_array_end    : ^uint  [[external('__bss_regions_array_end')]]
-
-function InitMemRegions():
-    var recp          : ^^uint
-    var endp          : ^^uint
-    var loadaddr      : ^uint
-    var destaddr      : ^uint
-    var destaddrend   : ^uint
-
-    // section initialization based on the .init section tables
-
-    // 1. Copy preinitialized data sections
-
-    recp = &__data_regions_array_start
-    endp = &__data_regions_array_end
-    while recp < endp:
-        loadaddr    = recp[0]^
-        destaddr    = recp[1]^
-        destaddrend = recp[2]^
-
-        while destaddr < destaddrend:
-            destaddr^ = loadaddr^  // copy data
-            loadaddr += 1
-            destaddr += 1
-        endwhile
-
-        recp += 3
-    endwhile
-
-    // 2. Zero BSS data sections
-
-    recp = &__bss_regions_array_start
-    endp = &__bss_regions_array_end
-    while recp < endp:
-        destaddr    = recp[0]^
-        destaddrend = recp[1]^
-
-        while destaddr < destaddrend:
-            destaddr^ = 0
-            destaddr += 1
-        endwhile
-
-        recp += 2
-    endwhile
-
-endfunc
 
 //function dq_module_init()  [[external('dq_module_init')]]
 
 function _start(self_flash : int)  [[cexport]]:
 
-    InitMemRegions()
+    InitMemRegions()  // in armm_startup.dq
 
     //dq_module_init()
 

@@ -1,0 +1,156 @@
+type FVectorTableEntry = function()
+
+var __stack : uint  [[external('__stack')]]  // from the linker script
+
+function soft_entry()  [[external('soft_entry')]]
+function cold_entry()  [[external('cold_entry')]]
+
+function NMI_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function HardFault_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function MemManage_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function BusFault_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function UsageFault_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function SVC_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function DebugMon_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function PendSV_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function SysTick_Handler() [[cexport, weak]]:
+    while true:
+      // nop
+    endwhile
+endfunc
+
+function IRQ_Handler_00()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_01()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_02()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_03()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_04()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_05()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_06()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_07()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_08()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_09()  [[cexport, weak]]:  while true: endwhile  endfunc
+
+function IRQ_Handler_10()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_11()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_12()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_13()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_14()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_15()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_16()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_17()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_18()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_19()  [[cexport, weak]]:  while true: endwhile  endfunc
+
+function IRQ_Handler_20()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_21()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_22()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_23()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_24()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_25()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_26()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_27()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_28()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_29()  [[cexport, weak]]:  while true: endwhile  endfunc
+
+function IRQ_Handler_30()  [[cexport, weak]]:  while true: endwhile  endfunc
+function IRQ_Handler_31()  [[cexport, weak]]:  while true: endwhile  endfunc
+
+[[cexport, section('.isr_vector'), align(1024)]]
+const armm_vector_table : [16 + 32] FVectorTableEntry =
+[
+	// Configure Initial Stack Pointer, using linker-generated symbols
+
+    FVectorTableEntry(&__stack),
+    cold_entry,                    // application entry
+    NMI_Handler,
+    HardFault_Handler,
+    MemManage_Handler,             // offset = 0x10
+    BusFault_Handler,
+    UsageFault_Handler,
+    null,                          // offset = 0x1C, Valid user code checksum for NXP
+    null,                          // offset = 0x20, Reserved
+    null,                          // offset = 0x24, NXP boot marker
+    null,                          // offset = 0x28, NXP boot block offset
+    SVC_Handler,
+    DebugMon_Handler,
+    null,                          // reserved
+    PendSV_Handler,
+    SysTick_Handler,
+
+    // Peripheral interrupts
+    IRQ_Handler_00,
+    IRQ_Handler_01,
+    IRQ_Handler_02,
+    IRQ_Handler_03,
+    IRQ_Handler_04,
+    IRQ_Handler_05,
+    IRQ_Handler_06,
+    IRQ_Handler_07,
+    IRQ_Handler_08,
+    IRQ_Handler_09,
+
+    IRQ_Handler_10,
+    IRQ_Handler_11,
+    IRQ_Handler_12,
+    IRQ_Handler_13,
+    IRQ_Handler_14,
+    IRQ_Handler_15,
+    IRQ_Handler_16,
+    IRQ_Handler_17,
+    IRQ_Handler_18,
+    IRQ_Handler_19,
+
+    IRQ_Handler_20,
+    IRQ_Handler_21,
+    IRQ_Handler_22,
+    IRQ_Handler_23,
+    IRQ_Handler_24,
+    IRQ_Handler_25,
+    IRQ_Handler_26,
+    IRQ_Handler_27,
+    IRQ_Handler_28,
+    IRQ_Handler_29,
+
+    IRQ_Handler_30,
+    IRQ_Handler_31
+]
