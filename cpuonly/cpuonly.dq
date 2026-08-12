@@ -5,17 +5,73 @@
 use ./armm_startup
 use ./armm_vector_table
 
+use vihal/platform
+use vihal/clockcnt
+use vihal/hwpins
+
+//use vihal/armm/stm32/f7/stm32f746
+//use vihal/armm/core_cm7
+//use vihal/armm/core_cm7
+
 var g_hbcnt : int = 0
+var g_clk : uint32 = 0
 
 //function dq_module_init()  [[external('dq_module_init')]]
+
+// Warning: constructors don't work yet !!!
+
+var led1 : OGpioPin = null
+var led2 : OGpioPin = null
+var led3 : OGpioPin = null
+
+var buf : [256]byte [[align(4)]]
+
+function BoardPinsInit():
+
+    var addr : ^byte = &buf[0]
+
+    led1 = OGpioPin(addr)
+    addr = &buf[64]
+    led2 = OGpioPin(addr)
+    addr = &buf[128]
+    led3 = OGpioPin(addr)
+
+    led1.Assign(PORTNUM_B,  0, false)
+    led2.Assign(PORTNUM_B,  7, false)
+    led3.Assign(PORTNUM_B, 14, false)
+
+    PinSetup(PORTNUM_B,  0, PINCFG_OUTPUT)
+    PinSetup(PORTNUM_B,  7, PINCFG_OUTPUT)
+    PinSetup(PORTNUM_B, 14, PINCFG_OUTPUT)
+
+
+//    pin_led_count = 3;
+//    pin_led[0].Assign(PORTNUM_B,  0, false);
+//    pin_led[1].Assign(PORTNUM_B,  7, false);
+//    pin_led[2].Assign(PORTNUM_B, 14, false);
+//    board_pins_init_leds();
+endfunc
 
 function _start(self_flash : int)  [[cexport]]:
 
     InitMemRegions()  // in armm_startup.dq
 
+    ClockCntInit()
+
+    BoardPinsInit()
+
     //dq_module_init()
+
+    var t1 : uint32 = ClockCnt()
+    var t2 : uint32 = ClockCnt()
+    var t3 : uint32 = ClockCnt()
 
     while true:
         g_hbcnt += 1
+        g_clk = ClockCnt()
+
+        led1.SetTo((g_hbcnt >> 0) AND 1)
+        led2.SetTo((g_hbcnt >> 1) AND 1)
+        led3.SetTo((g_hbcnt >> 2) AND 1)
     endwhile
 endfunc

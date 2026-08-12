@@ -1,6 +1,9 @@
 
 var __stack : uint  [[external('__stack')]]
 
+function _start(self_flash : int)  [[external('_start')]]
+
+
 function soft_entry()  [[cexport, section('.startup'), asm]]:
     ldr    r0, =__stack
     mov    sp, r0

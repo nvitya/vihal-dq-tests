@@ -13,7 +13,7 @@
             "interface": "swd",
 
             "cwd": "${workspaceFolder}/cpuonly",
-            "executable": "${workspaceFolder}/cpuonly/cpuonly.elf",
+            "executable": "${workspaceFolder}/cpuonly/cpuonly_stm32f746.elf",
 
             "gdbPath": "/usr/bin/gdb-multiarch",
             "objdumpPath": "/usr/bin/llvm-objdump",

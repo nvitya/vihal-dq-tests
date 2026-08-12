@@ -1,6 +1,6 @@
 // DQ project file for the "cpuonly" test
 
-var VIHAL = '/workpr/vihal-dq'
+var VIHAL = PackagePath('vihal')
 
 main     = 'cpuonly.dq'
 output   = '${PROJECT_NAME}.elf'
