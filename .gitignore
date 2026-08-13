@@ -1,3 +1,6 @@
+.dqbuild
+*.dqm_if
+
 # Prerequisites
 *.d
 

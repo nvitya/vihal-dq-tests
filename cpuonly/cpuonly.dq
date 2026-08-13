@@ -2,8 +2,8 @@
 // compile with:
 // dq-comp --target=arm_m7f-bare -O0 -g test1.dq
 
-use ./armm_startup
-use ./armm_vector_table
+use vihal/armm/armm_startup
+use vihal/armm/armm_vector_table
 
 use vihal/platform
 use vihal/clockcnt
@@ -55,6 +55,8 @@ endfunc
 function _start(self_flash : int)  [[cexport]]:
 
     InitMemRegions()  // in armm_startup.dq
+
+    ArmmVectorTableInit()
 
     ClockCntInit()
 
