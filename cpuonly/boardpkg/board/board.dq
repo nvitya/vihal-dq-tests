@@ -1,0 +1,6 @@
+
+// The VIHAL requires this module, at least the MCU registers must be included with "use ... reexport"
+
+use vihal/armm/stm32/f7/stm32f746   reexport
+
+// you can put board specific settings here
