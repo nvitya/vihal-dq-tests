@@ -3,4 +3,4 @@
 
 use vihal/armm/stm32/f7/stm32f746   reexport
 
-// you can put board specific settings here
+// you can put board specific constants here, but don't use vihal modules
