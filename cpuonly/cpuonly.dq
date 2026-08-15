@@ -11,6 +11,7 @@ use vihal/armm/armm_vector_table
 use vihal/platform
 use vihal/clockcnt
 use vihal/hwpins
+use vihal/hwclk
 
 use board/board_pins
 
@@ -27,6 +28,8 @@ function _start(self_flash : int)  [[cexport]]:
 
     ArmmVectorTableInit()
 
+    HwclkInit(8000000, 216000000)
+
     ClockCntInit()
 
     BoardPinsInit()
@@ -35,7 +38,7 @@ function _start(self_flash : int)  [[cexport]]:
     var t2 : uint32 = ClockCnt()
     var t3 : uint32 = ClockCnt()
 
-    const clk_per_sec : uint = 4000000
+    var clk_per_sec : uint = SystemCoreClock IDIV 2
 
     var prev_clk : uint = ClockCnt()
 
