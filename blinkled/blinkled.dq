@@ -6,7 +6,7 @@ use vihal/armm/armm_vector_table
 use vihal/platform
 use vihal/clockcnt
 use vihal/hwpins
-//use vihal/hwclk
+use vihal/hwclk
 
 use board/board_pins
 
@@ -23,8 +23,8 @@ function _start(self_flash : int)  [[cexport]]:
 
     ArmmVectorTableInit()
 
-    //HwclkInit(8000000, 216000000)
-    SystemCoreClock = 8000000
+    SystemCoreClock = MCU_INTERNAL_RC_SPEED
+    HwclkInit(EXTERNAL_XTAL_HZ, MAX_CLOCK_SPEED)
 
     ClockCntInit()
 

@@ -5,13 +5,18 @@
 
     use vihal/armm/stm32/f7/stm32f746   reexport
 
+    const EXTERNAL_XTAL_HZ : uint = 8000000
+
 #elifdef BOARD_DISCOVERY_F072
 
     use vihal/armm/stm32/f0/stm32f070   reexport
 
+    const EXTERNAL_XTAL_HZ : uint = 0
+
 #elifdef BOARD_RPI_PICO
 
     use vihal/armm/rp/20/rp2040  reexport
+
 
 #else
     #error "Unknown board"

@@ -17,4 +17,7 @@ linkoption  = '--gc-sections'
 packagepath = './boardpkg'
 linkscript  = '${VIHAL}/armm/stm32/f0/STM32F07xxB_ram.ld'
 
+linkobject = '/usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/libgcc.a'
+linkobject = '/usr/lib/arm-none-eabi/newlib/thumb/v6-m/nofp/libc_nano.a'
+
 define BOARD_DISCOVERY_F072
