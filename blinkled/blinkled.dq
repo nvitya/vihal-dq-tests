@@ -24,7 +24,7 @@ function _start(self_flash : int)  [[cexport]]:
     ArmmVectorTableInit()
 
     SystemCoreClock = MCU_INTERNAL_RC_SPEED
-    HwclkInit(EXTERNAL_XTAL_HZ, MAX_CLOCK_SPEED)
+    HwClkInit(EXTERNAL_XTAL_HZ, MAX_CLOCK_SPEED)
 
     ClockCntInit()
 
