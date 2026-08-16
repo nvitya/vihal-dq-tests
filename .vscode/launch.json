@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "cpuonly: Debug with gdb server",
+            "name": "cpuonly: NUCLEO_F746",
             "type": "cortex-debug",
             "request": "launch",
 
@@ -13,12 +13,45 @@
             "interface": "swd",
 
             "cwd": "${workspaceFolder}/cpuonly",
-            "executable": "${workspaceFolder}/cpuonly/cpuonly_stm32f746.elf",
+            "executable": "${workspaceFolder}/cpuonly/cpuonly_nucleo_f746.elf",
 
             "gdbPath": "/usr/bin/gdb-multiarch",
             "objdumpPath": "/usr/bin/llvm-objdump",
 
-            "preLaunchTask": "cpuonly: build",
+            "preLaunchTask": "cpuonly: NUCLEO_F746",
+
+            "overrideLaunchCommands": [
+                "monitor reset",
+                "-target-download",
+                "set $pc = soft_entry"
+            ],
+
+            "overrideResetCommands": [
+                "monitor reset",
+                "set $pc = soft_entry"
+            ],
+
+            "runToEntryPoint": "_start",
+            "showDevDebugOutput": "raw"
+        },
+        {
+            "name": "cpuonly: DISCOVERY_F072",
+            "type": "cortex-debug",
+            "request": "launch",
+
+            "servertype": "external",
+            "gdbTarget": "localhost:2331",
+
+            "device": "Cortex-M0",
+            "interface": "swd",
+
+            "cwd": "${workspaceFolder}/cpuonly",
+            "executable": "${workspaceFolder}/cpuonly/cpuonly_discovery_f072.elf",
+
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "objdumpPath": "/usr/bin/llvm-objdump",
+
+            "preLaunchTask": "cpuonly: DISCOVERY_F072",
 
             "overrideLaunchCommands": [
                 "monitor reset",

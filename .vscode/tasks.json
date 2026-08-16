@@ -2,9 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "cpuonly: build",
+      "label": "cpuonly: DISCOVERY_F072",
       "type": "shell",
-      "command": "dq-comp cpuonly_stm32f746.dqproj",
+      "command": "dq-comp cpuonly_discovery_f072.dqproj",
       "options": {
         "cwd": "${workspaceFolder}/cpuonly"
       },
@@ -12,6 +12,19 @@
       "group": {
         "kind": "build",
         "isDefault": true
+      }
+    },
+    {
+      "label": "cpuonly: NUCLEO_F746",
+      "type": "shell",
+      "command": "dq-comp cpuonly_nucleo_f46.dqproj",
+      "options": {
+        "cwd": "${workspaceFolder}/cpuonly"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
       }
     }
   ]

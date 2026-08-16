@@ -11,6 +11,8 @@ optlevel  = 0
 lto       = false
 debuginfo = true
 
+define BOARD_NUCLEO_F746
+
 target      = 'arm_m7f-bare'
 linkerpath  = '${VIHAL}/core/ld'
 linkoption  = '--gc-sections'

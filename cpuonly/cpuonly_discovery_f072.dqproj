@@ -1,0 +1,21 @@
+// DQ project file for the "cpuonly" test
+
+var VIHAL = PackagePath('vihal')
+
+main     = 'cpuonly.dq'
+output   = '${PROJECT_NAME}.elf'
+
+link     = true
+
+optlevel  = 0
+lto       = false
+debuginfo = true
+
+define BOARD_DISCOVERY_F072
+
+target      = 'arm_m0-bare'
+linkerpath  = '${VIHAL}/core/ld'
+linkoption  = '--gc-sections'
+packagepath = './boardpkg'
+linkscript  = '${VIHAL}/armm/stm32/f0/STM32F07xxB_ram.ld'
+
