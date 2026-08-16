@@ -5,6 +5,10 @@
 
     use vihal/armm/stm32/f7/stm32f746   reexport
 
+#elifdef BOARD_DISCOVERY_F072
+
+    use vihal/armm/stm32/f0/stm32f070   reexport
+
 #elifdef BOARD_RPI_PICO
 
     use vihal/armm/rp/20/rp2040  reexport
@@ -14,3 +18,5 @@
 #endif
 
 // you can put board specific constants here, but don't use vihal modules
+
+

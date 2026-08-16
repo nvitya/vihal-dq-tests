@@ -1,17 +1,12 @@
-
-// compile with:
-// dq-comp --target=arm_m7f-bare -O0 -g test1.dq
-
-//use board
+// Blinking led main for multiple boards
 
 use vihal/armm/armm_startup
 use vihal/armm/armm_vector_table
 
-
 use vihal/platform
 use vihal/clockcnt
 use vihal/hwpins
-use vihal/hwclk
+//use vihal/hwclk
 
 use board/board_pins
 
@@ -28,27 +23,30 @@ function _start(self_flash : int)  [[cexport]]:
 
     ArmmVectorTableInit()
 
-    HwclkInit(8000000, 216000000)
+    //HwclkInit(8000000, 216000000)
+    SystemCoreClock = 8000000
 
     ClockCntInit()
 
     BoardPinsInit()
 
-    var t1 : uint32 = ClockCnt()
-    var t2 : uint32 = ClockCnt()
-    var t3 : uint32 = ClockCnt()
-
     var clk_per_sec : uint = SystemCoreClock IDIV 2
-
-    var prev_clk : uint = ClockCnt()
+    var prev_clk    : uint = ClockCnt()
 
     while true:
         g_clk = ClockCnt()
         if g_clk - prev_clk > clk_per_sec:
             g_hbcnt += 1
             led1.SetTo((g_hbcnt >> 0) AND 1)
-            led2.SetTo((g_hbcnt >> 1) AND 1)
-            led3.SetTo((g_hbcnt >> 2) AND 1)
+            #if LED_COUNT > 1
+                led2.SetTo((g_hbcnt >> 1) AND 1)
+            #endif
+            #if LED_COUNT > 2
+                led3.SetTo((g_hbcnt >> 2) AND 1)
+            #endif
+            #if LED_COUNT > 3
+                led4.SetTo((g_hbcnt >> 3) AND 1)
+            #endif
 
             prev_clk = g_clk
         endif

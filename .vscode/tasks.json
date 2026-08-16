@@ -11,13 +11,13 @@
       "problemMatcher": [],
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": false
       }
     },
     {
       "label": "cpuonly: NUCLEO_F746",
       "type": "shell",
-      "command": "dq-comp cpuonly_nucleo_f46.dqproj",
+      "command": "dq-comp cpuonly_nucleo_f746.dqproj",
       "options": {
         "cwd": "${workspaceFolder}/cpuonly"
       },
@@ -25,6 +25,32 @@
       "group": {
         "kind": "build",
         "isDefault": false
+      }
+    },
+    {
+      "label": "blinkled: NUCLEO_F746",
+      "type": "shell",
+      "command": "dq-comp blinkled_nucleo_f746.dqproj",
+      "options": {
+        "cwd": "${workspaceFolder}/blinkled"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "blinkled: DISCOVERY_F072",
+      "type": "shell",
+      "command": "dq-comp blinkled_discovery_f072.dqproj",
+      "options": {
+        "cwd": "${workspaceFolder}/blinkled"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
       }
     }
   ]

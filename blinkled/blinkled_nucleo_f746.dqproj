@@ -1,8 +1,8 @@
-// DQ project file for the "cpuonly" test
+// DQ project file for the "blinkled" test
 
 var VIHAL = PackagePath('vihal')
 
-main     = 'cpuonly.dq'
+main     = 'blinkled.dq'
 output   = '${PROJECT_NAME}.elf'
 
 link     = true

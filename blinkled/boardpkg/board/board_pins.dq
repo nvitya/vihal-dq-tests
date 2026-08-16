@@ -1,0 +1,38 @@
+
+//use vihal/platform
+//use vihal/clockcnt
+use vihal/hwpins
+
+#ifdef BOARD_NUCLEO_F746
+
+const LED_COUNT : int = 3
+
+var led1 <- OGpioPin(PORTNUM_B,  0, false)
+var led2 <- OGpioPin(PORTNUM_B,  7, false)
+var led3 <- OGpioPin(PORTNUM_B, 14, false)
+
+function BoardPinsInit():
+    led1.Setup(PINCFG_OUTPUT)
+    led2.Setup(PINCFG_OUTPUT)
+    led3.Setup(PINCFG_OUTPUT)
+endfunc
+
+#elifdef BOARD_DISCOVERY_F072
+
+const LED_COUNT : int = 4
+
+var led1 <- OGpioPin(PORTNUM_C, 6, false)
+var led2 <- OGpioPin(PORTNUM_C, 8, false)
+var led3 <- OGpioPin(PORTNUM_C, 9, false)
+var led4 <- OGpioPin(PORTNUM_C, 7, false)
+
+function BoardPinsInit():
+    led1.Setup(PINCFG_OUTPUT)
+    led2.Setup(PINCFG_OUTPUT)
+    led3.Setup(PINCFG_OUTPUT)
+    led4.Setup(PINCFG_OUTPUT)
+endfunc
+
+#else
+  #error "Unhandled board"
+#endif
