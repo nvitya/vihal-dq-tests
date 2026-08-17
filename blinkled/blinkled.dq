@@ -1,7 +1,7 @@
 // Blinking led main for multiple boards
 
-use vihal/armm/armm_startup
-use vihal/armm/armm_vector_table
+use vihal/armm/core/armm_startup
+use vihal/armm/core/armm_vector_table
 
 use vihal/platform
 use vihal/clockcnt
@@ -11,7 +11,6 @@ use vihal/hwclk
 use board/board_pins
 
 var g_hbcnt : int = 0
-var g_clk : uint32 = 0
 
 function dq_module_init()  [[external('dq_module_init')]]
 
@@ -30,12 +29,13 @@ function _start(self_flash : int)  [[cexport]]:
 
     BoardPinsInit()
 
-    var clk_per_sec : uint = SystemCoreClock IDIV 2
-    var prev_clk    : uint = ClockCnt()
+    var hbclocks : uint = SystemCoreClock IDIV 20   // start blinking fast
+    var t0 : uint = ClockCnt()
+    var t1 : uint
 
     while true:
-        g_clk = ClockCnt()
-        if g_clk - prev_clk > clk_per_sec:
+        t1 = ClockCnt()
+        if t1 - t0 > hbclocks:
             g_hbcnt += 1
             led1.SetTo((g_hbcnt >> 0) AND 1)
             #if LED_COUNT > 1
@@ -48,7 +48,10 @@ function _start(self_flash : int)  [[cexport]]:
                 led4.SetTo((g_hbcnt >> 3) AND 1)
             #endif
 
-            prev_clk = g_clk
+            if g_hbcnt > 20:
+                hbclocks = SystemCoreClock IDIV 2  // slow down to 0.5 s
+            endif
+            t0 = t1
         endif
     endwhile
 endfunc

@@ -1,13 +1,6 @@
 
-// compile with:
-// dq-comp --target=arm_m7f-bare -O0 -g test1.dq
-
-//use board
-
-use vihal/armm/armm_startup
-use vihal/armm/armm_vector_table
-
-use vihal/platform
+use vihal/armm/core/armm_startup
+use vihal/armm/core/armm_vector_table
 
 var g_hbcnt : int = 0
 
