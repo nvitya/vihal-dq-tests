@@ -1,0 +1,20 @@
+// DQ project file for the "uart" test
+
+var VIHAL = PackagePath('vihal')
+
+main     = 'uart.dq'
+output   = '${PROJECT_NAME}.elf'
+
+link     = true
+
+optlevel  = 0
+lto       = false
+debuginfo = true
+
+target      = 'arm_m7f-bare'
+linkerpath  = '${VIHAL}/core/ld'
+linkoption  = '--gc-sections'
+packagepath = './boardpkg'
+linkscript  = '${VIHAL}/armm/stm32/f7/STM32F750x8_ram.ld'
+
+define BOARD_NUCLEO_F746

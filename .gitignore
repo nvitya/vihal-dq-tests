@@ -1,5 +1,6 @@
 .dqbuild
 *.dqm_if
+*.elf
 
 # Prerequisites
 *.d
