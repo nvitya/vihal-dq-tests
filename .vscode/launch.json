@@ -99,7 +99,41 @@
 
             "runToEntryPoint": "_start",
             "showDevDebugOutput": "raw"
-        }
+        },
+        {
+            "name": "uart: NUCLEO_F746",
+            "type": "cortex-debug",
+            "request": "launch",
+
+            "servertype": "external",
+            "gdbTarget": "localhost:2331",
+
+            "device": "Cortex-M7",
+            "interface": "swd",
+
+            "cwd": "${workspaceFolder}/uart",
+            "executable": "${workspaceFolder}/uart/uart_nucleo_f746.elf",
+
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "objdumpPath": "/usr/bin/llvm-objdump",
+
+            "preLaunchTask": "uart: NUCLEO_F746",
+
+            "overrideLaunchCommands": [
+                "monitor reset",
+                "-target-download",
+                "set $pc = soft_entry"
+            ],
+
+            "overrideResetCommands": [
+                "monitor reset",
+                "set $pc = soft_entry"
+            ],
+
+            "runToEntryPoint": "_start",
+            "showDevDebugOutput": "raw"
+        },
+
 
     ]
 }

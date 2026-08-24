@@ -5,7 +5,6 @@ use vihal/armm/core/armm_vector_table
 
 use vihal/platform
 use vihal/clockcnt
-use vihal/hwpins
 use vihal/hwclk
 
 use board/board_pins
@@ -47,6 +46,8 @@ function _start(self_flash : int)  [[cexport]]:
             #if LED_COUNT > 3
                 led4.SetTo((g_hbcnt >> 3) & 1)
             #endif
+
+            conuart.SendByte(0x55)
 
             if g_hbcnt > 20:
                 hbclocks = SystemCoreClock div 2  // slow down to 0.5 s
