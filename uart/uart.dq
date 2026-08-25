@@ -21,6 +21,9 @@ function _start(self_flash : int)  [[cexport]]:
 
     ArmmVectorTableInit()
 
+    Mcu_EnableFpu()
+    Mcu_EnableICache()
+
     SystemCoreClock = MCU_INTERNAL_RC_SPEED
     HwClkInit(EXTERNAL_XTAL_HZ, MAX_CLOCK_SPEED)
 
@@ -36,16 +39,17 @@ function _start(self_flash : int)  [[cexport]]:
         t1 = ClockCnt()
         if t1 - t0 > hbclocks:
             g_hbcnt += 1
+
             led1.SetTo((g_hbcnt >> 0) & 1)
-            #if LED_COUNT > 1
-                led2.SetTo((g_hbcnt >> 1) & 1)
-            #endif
-            #if LED_COUNT > 2
-                led3.SetTo((g_hbcnt >> 2) & 1)
-            #endif
-            #if LED_COUNT > 3
-                led4.SetTo((g_hbcnt >> 3) & 1)
-            #endif
+          #if LED_COUNT > 1
+            led2.SetTo((g_hbcnt >> 1) & 1)
+          #endif
+          #if LED_COUNT > 2
+            led3.SetTo((g_hbcnt >> 2) & 1)
+          #endif
+          #if LED_COUNT > 3
+            led4.SetTo((g_hbcnt >> 3) & 1)
+          #endif
 
             conuart.SendByte(0x55)
 
