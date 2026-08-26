@@ -10,7 +10,9 @@ use vihal/hwclk
 use board/board_pins
 
 use rtl/mem
-//use rtl/strfunc
+use rtl/strfunc
+
+use print
 
 var g_hbcnt : int = 0
 
@@ -29,14 +31,17 @@ function _start(self_flash : int)  [[cexport]]:
 
     var bp : ^byte = ^byte(MemAlloc(1024))
 
-    //var av : anyvalue
-
     SystemCoreClock = MCU_INTERNAL_RC_SPEED
     HwClkInit(EXTERNAL_XTAL_HZ, MAX_CLOCK_SPEED)
 
     ClockCntInit()
 
     BoardPinsInit()
+
+    //var av : anyvalue
+    var s : str = "abc"
+
+    PrintLn('Hello from VIHAL-DQ!')
 
     var hbclocks : uint = SystemCoreClock div 20   // start blinking fast
     var t0 : uint = ClockCnt()

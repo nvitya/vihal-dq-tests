@@ -2,70 +2,69 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "cpuonly: DISCOVERY_F072",
-      "type": "shell",
-      "command": "dq-comp cpuonly_discovery_f072.dqproj",
-      "options": {
-        "cwd": "${workspaceFolder}/cpuonly"
-      },
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+        "label": "cpuonly: DISCOVERY_F072",
+        "type": "shell",
+        "command": "dq-comp cpuonly_discovery_f072.dqproj",
+        "options": {
+            "cwd": "${workspaceFolder}/cpuonly"
+        },
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": false
+        }
     },
     {
-      "label": "cpuonly: NUCLEO_F746",
-      "type": "shell",
-      "command": "dq-comp cpuonly_nucleo_f746.dqproj",
-      "options": {
-        "cwd": "${workspaceFolder}/cpuonly"
-      },
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+        "label": "cpuonly: NUCLEO_F746",
+        "type": "shell",
+        "command": "dq-comp cpuonly_nucleo_f746.dqproj",
+        "options": {
+            "cwd": "${workspaceFolder}/cpuonly"
+        },
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": false
+        }
     },
     {
-      "label": "blinkled: NUCLEO_F746",
-      "type": "shell",
-      "command": "dq-comp blinkled_nucleo_f746.dqproj",
-      "options": {
-        "cwd": "${workspaceFolder}/blinkled"
-      },
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+        "label": "blinkled: NUCLEO_F746",
+        "type": "shell",
+        "command": "dq-comp blinkled_nucleo_f746.dqproj",
+        "options": {
+            "cwd": "${workspaceFolder}/blinkled"
+        },
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": false
+        }
     },
     {
-      "label": "blinkled: DISCOVERY_F072",
-      "type": "shell",
-      "command": "dq-comp blinkled_discovery_f072.dqproj",
-      "options": {
-        "cwd": "${workspaceFolder}/blinkled"
-      },
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+        "label": "blinkled: DISCOVERY_F072",
+        "type": "shell",
+        "command": "dq-comp blinkled_discovery_f072.dqproj",
+        "options": {
+            "cwd": "${workspaceFolder}/blinkled"
+        },
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": false
+        }
     },
     {
-      "label": "uart: NUCLEO_F746",
-      "type": "shell",
-      "command": "dq-comp uart_nucleo_f746.dqproj",
-      "options": {
-        "cwd": "${workspaceFolder}/uart"
-      },
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
-    },
-
-  ]
+        "label": "uart: NUCLEO_F746",
+        "type": "shell",
+        "command": "dq-comp uart_nucleo_f746.dqproj",
+        "options": {
+            "cwd": "${workspaceFolder}/uart"
+        },
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+    }
+]
 }
