@@ -41,6 +41,7 @@ function _start(self_flash : int)  [[cexport, used, section('.startup')]]:
     //var av : anyvalue
     var s : str = "abc"
 
+    PrintLn('--------------------------------------------------------')
     PrintLn('Hello from VIHAL-DQ!')
 
     var hbclocks : uint = SystemCoreClock div 20   // start blinking fast
@@ -63,7 +64,8 @@ function _start(self_flash : int)  [[cexport, used, section('.startup')]]:
             led4.SetTo((g_hbcnt >> 3) & 1)
           #endif
 
-            conuart.SendByte(0x55)
+            //conuart.SendByte(0x55)
+            PrintLn('hbcounter = {}', [g_hbcnt])
 
             if g_hbcnt > 20:
                 hbclocks = SystemCoreClock div 2  // slow down to 0.5 s
