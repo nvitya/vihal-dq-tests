@@ -17,4 +17,6 @@ linkoption  = '--gc-sections'
 packagepath = './boardpkg'
 linkscript  = '${VIHAL}/armm/stm32/f7/STM32F750x8_ram.ld'
 
+linkoption = '--Map=${PROJECT_NAME}.map'
+
 define BOARD_NUCLEO_F746

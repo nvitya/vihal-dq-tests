@@ -1,6 +1,8 @@
 .dqbuild
 *.dqm_if
 *.elf
+vihal
+*.map
 
 # Prerequisites
 *.d
