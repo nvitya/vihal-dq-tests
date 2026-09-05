@@ -16,9 +16,9 @@ use print
 
 var g_hbcnt : int = 0
 
-function dq_module_init()  [[external('dq_module_init')]]
+func dq_module_init()  [[external('dq_module_init')]]
 
-function _start(self_flash : int)  [[cexport, used, section('.startup')]]:
+func _start(self_flash : int)  [[cexport, used, section('.startup')]]:
 
     InitMemRegions()  // in armm_startup.dq
 
@@ -39,7 +39,7 @@ function _start(self_flash : int)  [[cexport, used, section('.startup')]]:
     BoardPinsInit()
 
     //var av : anyvalue
-    var s : str = "abc"
+    //var s : str = "abc"
 
     PrintLn('--------------------------------------------------------')
     PrintLn('Hello from VIHAL-DQ!')

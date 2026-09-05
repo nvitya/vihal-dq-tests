@@ -7,10 +7,11 @@ output   = '${PROJECT_NAME}.elf'
 
 link     = true
 
-optlevel  = 0
-lto       = false
+optlevel  = 1
+lto       = true
 debuginfo = true
 
+exceptions  = false
 target      = 'arm_m7f-bare'
 linkerpath  = '${VIHAL}/core/ld'
 linkoption  = '--gc-sections'

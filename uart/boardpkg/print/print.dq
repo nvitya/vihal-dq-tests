@@ -1,12 +1,12 @@
 
 // print implementation using the console uart
 
-function Print(fmt : strview) [[overload]]
-function Print(fmt : strview, args : []anyvalue) [[overload]]
-function PrintLn() [[overload]]
-function PrintLn(fmt : strview) [[overload]]
-function PrintLn(fmt : strview, args : []anyvalue) [[overload]]
-function PrintFlush()
+func Print(fmt : strview) [[overload]]
+func Print(fmt : strview, args : []anyvalue) [[overload]]
+func PrintLn() [[overload]]
+func PrintLn(fmt : strview) [[overload]]
+func PrintLn(fmt : strview, args : []anyvalue) [[overload]]
+func PrintFlush()
 
 implementation
 
@@ -17,50 +17,50 @@ use board/board_pins
 object OTextSinkUart(OTextSink):
     uart : OHwUart
 
-    function *Create():
+    func *Create():
         inherited Create()
         uart = @board_pins.conuart
     endfunc
 
-    function Write(atext : strview) [[override]]:
+    func Write(atext : strview) [[override]]:
         for i : int = 0 count atext.length:
             uart.SendByte(Ord(atext[i]))
         endfor
     endfunc
 
-    function WriteChar(ch : char)   [[override]]:
+    func WriteChar(ch : char)   [[override]]:
         uart.SendByte(Ord(ch))
     endfunc
-endobj
+endobject
 
 var conuart_sink      <- OTextSinkUart()
 var conuart_formatter <- OTextFormatter(conuart_sink)
 
-function Print(fmt : strview) [[overload]]:
+func Print(fmt : strview) [[overload]]:
     conuart_sink.Write(fmt)
 endfunc
 
-function Print(fmt : strview, args : []anyvalue) [[overload]]:
+func Print(fmt : strview, args : []anyvalue) [[overload]]:
     conuart_formatter.Format(fmt, args)
 endfunc
 
-function PrintLn() [[overload]]:
+func PrintLn() [[overload]]:
     conuart_sink.WriteChar('\r')
     conuart_sink.WriteChar('\n')
 endfunc
 
-function PrintLn(fmt : strview) [[overload]]:
+func PrintLn(fmt : strview) [[overload]]:
     conuart_sink.Write(fmt)
     conuart_sink.WriteChar('\r')
     conuart_sink.WriteChar('\n')
 endfunc
 
-function PrintLn(fmt : strview, args : []anyvalue) [[overload]]:
+func PrintLn(fmt : strview, args : []anyvalue) [[overload]]:
     conuart_formatter.Format(fmt, args)
     conuart_sink.WriteChar('\r')
     conuart_sink.WriteChar('\n')
 endfunc
 
-function PrintFlush():
+func PrintFlush():
     //
 endfunc

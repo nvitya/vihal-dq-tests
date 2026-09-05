@@ -28,6 +28,19 @@
         }
     },
     {
+        "label": "cpuonly: MIBOW_ESP32C3",
+        "type": "shell",
+        "command": "dq-comp cpuonly_mibow_esp32c3.dqproj",
+        "options": {
+            "cwd": "${workspaceFolder}/cpuonly"
+        },
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+    },
+    {
         "label": "blinkled: NUCLEO_F746",
         "type": "shell",
         "command": "dq-comp blinkled_nucleo_f746.dqproj",
@@ -61,10 +74,7 @@
             "cwd": "${workspaceFolder}/uart"
         },
         "problemMatcher": [],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        }
+        "group": "build"
     }
 ]
 }

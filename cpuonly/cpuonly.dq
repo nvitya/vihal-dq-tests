@@ -4,7 +4,7 @@ use vihal/armm/core/armm_vector_table
 
 var g_hbcnt : int = 0
 
-function _start(self_flash : int)  [[cexport]]:
+func _start(self_flash : int)  [[cexport]]:
 
     InitMemRegions()  // in armm_startup.dq
 

@@ -1,6 +1,10 @@
 
 // The VIHAL requires this module, at least the MCU registers must be included with "use ... reexport"
 
+//-------------------------------------------------------------------------------
+// ARM Cortex-M
+//-------------------------------------------------------------------------------
+
 #ifdef BOARD_NUCLEO_F746
 
     use vihal/armm/stm32/f7/stm32f746   reexport
@@ -12,6 +16,14 @@
 #elifdef BOARD_RPI_PICO
 
     use vihal/armm/rp/20/rp2040  reexport
+
+//-------------------------------------------------------------------------------
+// Risc-V: RV32I
+//-------------------------------------------------------------------------------
+
+#elifdef BOARD_MIBOW_ESP32C3
+
+    use vihal/rv32i/esp/32C3/esp32c3  reexport
 
 #else
     #error "Unknown board"

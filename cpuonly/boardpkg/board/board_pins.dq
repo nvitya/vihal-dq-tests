@@ -7,7 +7,7 @@ var led1 <- OGpioPin(PORTNUM_B,  0, false)
 var led2 <- OGpioPin(PORTNUM_B,  7, false)
 var led3 <- OGpioPin(PORTNUM_B, 14, false)
 
-function BoardPinsInit():
+func BoardPinsInit():
     led1.Setup(PINCFG_OUTPUT)
     led2.Setup(PINCFG_OUTPUT)
     led3.Setup(PINCFG_OUTPUT)
