@@ -4,6 +4,8 @@
 vihal
 *.map
 
+numbered-bookmarks.json
+
 # Prerequisites
 *.d
 
