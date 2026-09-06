@@ -1,9 +1,8 @@
-// Blinking led main for multiple boards
-
-use vihal/armm/core/armm_startup
-use vihal/armm/core/armm_vector_table
+// Uart main for multiple boards
 
 use vihal/platform
+use vihal/core/platform_init
+
 use vihal/clockcnt
 use vihal/hwclk
 
@@ -22,9 +21,9 @@ func _start(self_flash : int)  [[cexport, used, section('.startup')]]:
 
     InitMemRegions()  // in armm_startup.dq
 
-    dq_module_init()
+    McuVectorTableInit()  // relocate the vector table if supported
 
-    ArmmVectorTableInit()
+    DqModuleInit()    // Initialize DQ modules, call embedded object constructors
 
     Mcu_EnableFpu()
     Mcu_EnableICache()

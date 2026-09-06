@@ -5,9 +5,6 @@
         "label": "uart: NUCLEO_F746",
         "type": "shell",
         "command": "dq-comp uart_nucleo_f746.dqproj",
-        "options": {
-            "cwd": "${workspaceFolder}/uart"
-        },
         "problemMatcher": [],
         "group": "build"
     }

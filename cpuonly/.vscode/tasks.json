@@ -5,9 +5,6 @@
         "label": "cpuonly: DISCOVERY_F072",
         "type": "shell",
         "command": "dq-comp cpuonly_discovery_f072.dqproj",
-        "options": {
-            "cwd": "${workspaceFolder}/cpuonly"
-        },
         "problemMatcher": [],
         "group": {
             "kind": "build",
@@ -18,24 +15,18 @@
         "label": "cpuonly: NUCLEO_F746",
         "type": "shell",
         "command": "dq-comp cpuonly_nucleo_f746.dqproj",
-        "options": {
-            "cwd": "${workspaceFolder}/cpuonly"
-        },
         "problemMatcher": [],
-        "group": "build"
+        "group": {
+            "kind": "build",
+            "isDefault": false
+        }
     },
     {
         "label": "cpuonly: MIBOW_ESP32C3",
         "type": "shell",
         "command": "dq-comp cpuonly_mibow_esp32c3.dqproj",
-        "options": {
-            "cwd": "${workspaceFolder}/cpuonly"
-        },
         "problemMatcher": [],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        }
+        "group": "build"
     }
-  ]
+]
 }

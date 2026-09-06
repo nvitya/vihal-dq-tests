@@ -5,26 +5,17 @@
         "label": "blinkled: NUCLEO_F746",
         "type": "shell",
         "command": "dq-comp blinkled_nucleo_f746.dqproj",
-        "options": {
-            "cwd": "${workspaceFolder}/blinkled"
-        },
         "problemMatcher": [],
-        "group": {
-            "kind": "build",
-            "isDefault": false
-        }
+        "group": "build"
     },
     {
         "label": "blinkled: DISCOVERY_F072",
         "type": "shell",
         "command": "dq-comp blinkled_discovery_f072.dqproj",
-        "options": {
-            "cwd": "${workspaceFolder}/blinkled"
-        },
         "problemMatcher": [],
         "group": {
             "kind": "build",
-            "isDefault": false
+            "isDefault": true
         }
     }
 ]
