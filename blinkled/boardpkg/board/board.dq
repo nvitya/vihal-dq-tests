@@ -17,6 +17,11 @@
 
     use vihal/armm/rp/20/rp2040  reexport
 
+#elifdef BOARD_WEMOS_C3MINI
+
+    use vihal/rv32i/esp32/c3/esp32c3  reexport
+
+    const EXTERNAL_XTAL_HZ : uint = 40000000
 
 #else
     #error "Unknown board"

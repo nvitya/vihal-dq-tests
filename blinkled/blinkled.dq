@@ -1,8 +1,5 @@
 // Blinking led main for multiple boards
 
-use vihal/armm/core/armm_startup
-use vihal/armm/core/armm_vector_table
-
 use vihal/platform
 use vihal/core/platform_init
 
