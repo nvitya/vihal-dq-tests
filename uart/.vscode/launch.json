@@ -12,8 +12,8 @@
             "device": "Cortex-M7",
             "interface": "swd",
 
-            "cwd": "${workspaceFolder}/uart",
-            "executable": "${workspaceFolder}/uart/uart_nucleo_f746.elf",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/uart_nucleo_f746.elf",
 
             "gdbPath": "/usr/bin/gdb-multiarch",
             "objdumpPath": "/usr/bin/llvm-objdump",

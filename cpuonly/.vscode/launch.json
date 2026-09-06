@@ -12,8 +12,8 @@
             "device": "Cortex-M7",
             "interface": "swd",
 
-            "cwd": "${workspaceFolder}/cpuonly",
-            "executable": "${workspaceFolder}/cpuonly/cpuonly_nucleo_f746.elf",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/cpuonly_nucleo_f746.elf",
 
             "gdbPath": "/usr/bin/gdb-multiarch",
             "objdumpPath": "/usr/bin/llvm-objdump",
@@ -39,8 +39,8 @@
             "type": "cppdbg",
             "request": "launch",
 
-            "cwd": "${workspaceFolder}/cpuonly",
-            "program": "${workspaceFolder}/cpuonly/cpuonly_mibow_esp32c3.elf",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/cpuonly_mibow_esp32c3.elf",
 
             "MIMode": "gdb",
             "miDebuggerPath": "/usr/bin/gdb-multiarch",
@@ -87,8 +87,8 @@
             "device": "Cortex-M0",
             "interface": "swd",
 
-            "cwd": "${workspaceFolder}/cpuonly",
-            "executable": "${workspaceFolder}/cpuonly/cpuonly_discovery_f072.elf",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/cpuonly_discovery_f072.elf",
 
             "gdbPath": "/usr/bin/gdb-multiarch",
             "objdumpPath": "/usr/bin/llvm-objdump",
