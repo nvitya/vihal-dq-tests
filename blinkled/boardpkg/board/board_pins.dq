@@ -33,6 +33,27 @@ func BoardPinsInit():
     led4.Setup(PINCFG_OUTPUT)
 endfunc
 
+#elifdef BOARD_WEMOS_C3MINI
+
+const LED_COUNT : int = 1
+
+var led1 <- OGpioPin(0, 7, false)
+
+func BoardPinsInit():
+    led1.Setup(PINCFG_OUTPUT)
+endfunc
+
+#elifdef BOARD_MIBOW_ESP32C3
+
+const LED_COUNT : int = 1
+
+var led1 <- OGpioPin(0, 9, false)
+
+func BoardPinsInit():
+    led1.Setup(PINCFG_OUTPUT)
+endfunc
+
+
 #else
   #error "Unhandled board"
 #endif

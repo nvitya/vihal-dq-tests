@@ -9,14 +9,21 @@
         "group": "build"
     },
     {
-        "label": "blinkled: DISCOVERY_F072",
+        "label": "blinkled: WEMOS_C3MINI",
         "type": "shell",
-        "command": "dq-comp blinkled_discovery_f072.dqproj",
+        "command": "dq-comp blinkled_wemos_c3mini.dqproj",
         "problemMatcher": [],
         "group": {
             "kind": "build",
             "isDefault": true
         }
+    },
+    {
+        "label": "blinkled: DISCOVERY_F072",
+        "type": "shell",
+        "command": "dq-comp blinkled_discovery_f072.dqproj",
+        "problemMatcher": [],
+        "group": "build"
     }
 ]
 }

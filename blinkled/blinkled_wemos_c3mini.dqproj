@@ -1,0 +1,20 @@
+
+var VIHAL = PackagePath('vihal')
+
+main     = 'blinkled.dq'
+output   = '${PROJECT_NAME}.elf'
+
+link     = true
+
+optlevel  = 0
+lto       = false
+debuginfo = true
+
+define BOARD_WEMOS_C3MINI
+
+target      = 'rv32imac-bare'
+linkerpath  = '${VIHAL}/core/ld'
+linkoption  = '--gc-sections'
+packagepath = './boardpkg'
+linkscript  = '${VIHAL}/rv32i/esp32/c3/ESP32C3_ram_256-128.ld'
+
