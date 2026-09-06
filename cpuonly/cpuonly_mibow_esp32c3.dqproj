@@ -13,9 +13,9 @@ debuginfo = true
 
 define BOARD_MIBOW_ESP32C3
 
-target      = 'rv32imac_bare'
+target      = 'rv32imac-bare'
 linkerpath  = '${VIHAL}/core/ld'
 linkoption  = '--gc-sections'
 packagepath = './boardpkg'
-linkscript  = '${VIHAL}/rv32i/esp/32c3/ESP32C3_ram_256-128.ld'
+linkscript  = '${VIHAL}/rv32i/esp32/c3/ESP32C3_ram_256-128.ld'
 

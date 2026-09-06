@@ -35,6 +35,48 @@
             "showDevDebugOutput": "raw"
         },
         {
+            "name": "cpuonly: MIBOW_ESP32C3",
+            "type": "cppdbg",
+            "request": "launch",
+
+            "cwd": "${workspaceFolder}/cpuonly",
+            "program": "${workspaceFolder}/cpuonly/cpuonly_mibow_esp32c3.elf",
+
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb-multiarch",
+            "miDebuggerServerAddress": "localhost:3333",
+
+            "preLaunchTask": "cpuonly: MIBOW_ESP32C3",
+
+            "postRemoteConnectCommands": [
+                {
+                    "description": "Reset and halt the ESP32-C3",
+                    "text": "monitor reset halt",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Load the RV32IMAC ELF into RAM",
+                    "text": "load",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Start at VIHAL's software entry point",
+                    "text": "set $pc = soft_entry",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Stop at the C/C++ startup entry point",
+                    "text": "tbreak _start",
+                    "ignoreFailures": false
+                }
+            ],
+
+            "launchCompleteCommand": "exec-continue",
+            "logging": {
+                "engineLogging": true
+            }
+        },
+        {
             "name": "cpuonly: DISCOVERY_F072",
             "type": "cortex-debug",
             "request": "launch",
@@ -132,8 +174,6 @@
 
             "runToEntryPoint": "_start",
             "showDevDebugOutput": "raw"
-        },
-
-
+        }
     ]
 }

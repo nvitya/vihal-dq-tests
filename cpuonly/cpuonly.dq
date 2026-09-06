@@ -1,14 +1,15 @@
 
-use vihal/armm/core/armm_startup
-use vihal/armm/core/armm_vector_table
+use vihal/core/platform_init
 
 var g_hbcnt : int = 0
 
 func _start(self_flash : int)  [[cexport]]:
 
-    InitMemRegions()  // in armm_startup.dq
+    // Initialize memory regions
+    InitMemRegions()      // in platform_init
 
-    //ArmmVectorTableInit()
+    // Vector table relocation, when supported
+    McuVectorTableInit()  // since this will
 
     while true:
         g_hbcnt += 1

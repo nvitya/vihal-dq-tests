@@ -23,7 +23,7 @@
 
 #elifdef BOARD_MIBOW_ESP32C3
 
-    use vihal/rv32i/esp/32C3/esp32c3  reexport
+    use vihal/rv32i/esp32/c3/esp32c3  reexport
 
 #else
     #error "Unknown board"

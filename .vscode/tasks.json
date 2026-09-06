@@ -22,10 +22,7 @@
             "cwd": "${workspaceFolder}/cpuonly"
         },
         "problemMatcher": [],
-        "group": {
-            "kind": "build",
-            "isDefault": false
-        }
+        "group": "build"
     },
     {
         "label": "cpuonly: MIBOW_ESP32C3",
