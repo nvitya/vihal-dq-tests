@@ -12,8 +12,7 @@
             "device": "Cortex-M0",
             "interface": "swd",
 
-            "cwd": "${workspaceFolder}/blinkled",
-            "executable": "${workspaceFolder}/blinkled/blinkled_discovery_f072.elf",
+            "executable": "${workspaceFolder}/blinkled_discovery_f072.elf",
 
             "gdbPath": "/usr/bin/gdb-multiarch",
             "objdumpPath": "/usr/bin/llvm-objdump",
@@ -33,6 +32,48 @@
 
             "runToEntryPoint": "_start",
             "showDevDebugOutput": "raw"
+        },
+        {
+            "name": "blinkled: WEMOS_C3MINI",
+            "type": "cppdbg",
+            "request": "launch",
+
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/blinkled_wemos_c3mini.elf",
+
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb-multiarch",
+            "miDebuggerServerAddress": "localhost:3333",
+
+            "preLaunchTask": "blinkled: WEMOS_C3MINI",
+
+            "postRemoteConnectCommands": [
+                {
+                    "description": "Reset and halt the ESP32-C3",
+                    "text": "monitor reset halt",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Load the RV32IMAC ELF into RAM",
+                    "text": "load",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Start at VIHAL's software entry point",
+                    "text": "set $pc = soft_entry",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Stop at the C/C++ startup entry point",
+                    "text": "tbreak _start",
+                    "ignoreFailures": false
+                }
+            ],
+
+            "launchCompleteCommand": "exec-continue",
+            "logging": {
+                "engineLogging": true
+            }
         }
     ]
 }
