@@ -13,10 +13,7 @@
         "type": "shell",
         "command": "dq-comp blinkled_wemos_c3mini.dqproj",
         "problemMatcher": [],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        }
+        "group": "build"
     },
     {
         "label": "blinkled: DISCOVERY_F072",

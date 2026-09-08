@@ -46,6 +46,15 @@ func _start(self_flash : int)  [[cexport, used, section('.startup')]]:
     var hbclocks : uint = SystemCoreClock div 20   // start blinking fast
     var t0 : uint = ClockCnt()
     var t1 : uint
+    var t2 : uint
+    var t3 : uint
+
+    t0 = ClockCnt()
+    t1 = ClockCnt()
+    t2 = ClockCnt()
+    t3 = ClockCnt()
+
+    PrintLn('Consecutive ClockCnt(): {}, {}, {}', [t1-t0, t2-t1, t3-t2])
 
     while true:
         t1 = ClockCnt()
