@@ -3,6 +3,7 @@
 //use vihal/clockcnt
 use vihal/hwpins
 
+
 #ifdef BOARD_NUCLEO_F746
 
 const LED_COUNT : int = 3
@@ -16,6 +17,7 @@ func BoardPinsInit():
     led2.Setup(PINCFG_OUTPUT)
     led3.Setup(PINCFG_OUTPUT)
 endfunc
+
 
 #elifdef BOARD_DISCOVERY_F072
 
@@ -33,6 +35,7 @@ func BoardPinsInit():
     led4.Setup(PINCFG_OUTPUT)
 endfunc
 
+
 #elifdef BOARD_WEMOS_C3MINI
 
 const LED_COUNT : int = 1
@@ -42,6 +45,7 @@ var led1 <- OGpioPin(0, 7, false)
 func BoardPinsInit():
     led1.Setup(PINCFG_OUTPUT)
 endfunc
+
 
 #elifdef BOARD_MIBOW_ESP32C3
 

@@ -2,6 +2,7 @@
 	"folders": [
 		{ "path": "cpuonly" },
 		{ "path": "blinkled" },
+		{ "path": "blinkled_linux" },
 		{ "path": "uart" },
 		{ "path": "vihal" }
 	],
@@ -18,6 +19,10 @@
 		"python.analysis.extraPaths": [
 			"${workspaceFolder}/sources/poky/bitbake/lib",
 			"${workspaceFolder}/sources/poky/meta/lib"
-		]
+		],
+		"dq.languageServerProjects": {
+			"uart": "uart_nucleo_f746.dqproj",
+			"blinkled": "blinkled_nucleo_f746.dqproj"
+		}
 	}
 }

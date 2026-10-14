@@ -6,10 +6,7 @@
       "type": "shell",
       "command": "dq-comp uart_nucleo_f746.dqproj",
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
+      "group": "build"
     }
   ]
 }

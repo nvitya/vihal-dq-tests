@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+        "label": "blinkled_linux: LUCKFOX_LYRA_ULTRA",
+        "type": "shell",
+        "command": "dq-comp blinkled_luckfox_lyra_ultra.dqproj",
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+    }
+]
+}

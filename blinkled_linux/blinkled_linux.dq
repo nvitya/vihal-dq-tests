@@ -1,0 +1,8 @@
+// Blinking led main for multiple boards
+
+use print
+
+func *Main():
+    PrintLn('Blinkled Linux')
+
+endfunc

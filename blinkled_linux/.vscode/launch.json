@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "blinkled_linux: LUCKFOX_LYRA_ULTRA",
+
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "gdbTarget": "192.168.0.43:2345",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "objdumpPath": "/usr/bin/objdump",
+            "executable": "${workspaceFolder}/${config:dq.debugTarget}",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "blinkled_linux: LUCKFOX_LYRA_ULTRA",
+            "runToEntryPoint": "",
+            "overrideLaunchCommands": [
+                "remote put ${workspaceFolder}/${config:dq.debugTarget} ${config:dq.debugTarget}",
+                "set remote exec-file ${config:dq.debugTarget}",
+                "starti"
+            ],
+            "showDevDebugOutput": "raw"
+        }
+    ]
+}

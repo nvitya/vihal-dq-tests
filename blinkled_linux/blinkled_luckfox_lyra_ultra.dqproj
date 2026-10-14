@@ -1,0 +1,17 @@
+// DQ project file for the "blinkled_linux" test
+
+var VIHAL = PackagePath('vihal')
+
+main     = 'blinkled_linux.dq'
+output   = '${PROJECT_NAME}'
+
+link     = true
+
+optlevel  = 0
+lto       = false
+debuginfo = true
+
+target      = 'armhf-linux'
+packagepath = './boardpkg'
+
+define BOARD_LUCKFOX_LYRA_ULTRA

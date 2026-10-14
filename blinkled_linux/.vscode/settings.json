@@ -1,0 +1,11 @@
+{
+  "dq.debugTarget": "blinkled_luckfox_lyra_ultra",
+  "dq.debugCwd":    ".",
+
+  "dq.languageServerProject": "blinkled_luckfox_lyra_ultra.dqproj",
+  "dq.languageServerPath": "dq-comp",
+  "dq.languageServerArgs": [
+    "--pkg-path",
+    "boardpkg"
+  ]
+}

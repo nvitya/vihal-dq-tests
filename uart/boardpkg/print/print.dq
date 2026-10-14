@@ -1,11 +1,11 @@
 
 // print implementation using the console uart
 
-func Print(fmt : strview) [[overload]]
-func Print(fmt : strview, args : []anyvalue) [[overload]]
+func Print(fmt : rostr) [[overload]]
+func Print(fmt : rostr, args : []anyvalue) [[overload]]
 func PrintLn() [[overload]]
-func PrintLn(fmt : strview) [[overload]]
-func PrintLn(fmt : strview, args : []anyvalue) [[overload]]
+func PrintLn(fmt : rostr) [[overload]]
+func PrintLn(fmt : rostr, args : []anyvalue) [[overload]]
 func PrintFlush()
 
 implementation
@@ -22,7 +22,7 @@ object OTextSinkUart(OTextSink):
         uart = @board_pins.conuart
     endfunc
 
-    func Write(atext : strview) [[override]]:
+    func Write(atext : strslice) [[override]]:
         for i : int = 0 count atext.length:
             uart.SendByte(Ord(atext[i]))
         endfor
@@ -36,11 +36,11 @@ endobject
 var conuart_sink      <- OTextSinkUart()
 var conuart_formatter <- OTextFormatter(conuart_sink)
 
-func Print(fmt : strview) [[overload]]:
+func Print(fmt : rostr) [[overload]]:
     conuart_sink.Write(fmt)
 endfunc
 
-func Print(fmt : strview, args : []anyvalue) [[overload]]:
+func Print(fmt : rostr, args : []anyvalue) [[overload]]:
     conuart_formatter.Format(fmt, args)
 endfunc
 
@@ -49,13 +49,13 @@ func PrintLn() [[overload]]:
     conuart_sink.WriteChar('\n')
 endfunc
 
-func PrintLn(fmt : strview) [[overload]]:
+func PrintLn(fmt : rostr) [[overload]]:
     conuart_sink.Write(fmt)
     conuart_sink.WriteChar('\r')
     conuart_sink.WriteChar('\n')
 endfunc
 
-func PrintLn(fmt : strview, args : []anyvalue) [[overload]]:
+func PrintLn(fmt : rostr, args : []anyvalue) [[overload]]:
     conuart_formatter.Format(fmt, args)
     conuart_sink.WriteChar('\r')
     conuart_sink.WriteChar('\n')
