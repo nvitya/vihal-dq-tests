@@ -3,7 +3,7 @@
 
 #ifdef BOARD_LUCKFOX_LYRA_ULTRA
 
-    use vihal/arma/rk/3506/rk3506   reexport
+    use vihal/arma/rk/_3506/rk3506   reexport
 
     const EXTERNAL_XTAL_HZ : uint = 24000000
 

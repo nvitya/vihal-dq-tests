@@ -2,7 +2,14 @@
 
 use print
 
+use vihal/platform
+use vihal/hwclk
+use vihal/hwpins
+
+
+
 func *Main():
     PrintLn('Blinkled Linux')
 
+    HwClkInit(0, MAX_CLOCK_SPEED)
 endfunc
