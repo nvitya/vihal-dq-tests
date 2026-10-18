@@ -15,7 +15,7 @@
 
 #elifdef BOARD_RPI_PICO
 
-    use vihal/armm/rp/20/rp2040  reexport
+    use vihal/armm/rp/_20/rp2040  reexport
 
 
 #else

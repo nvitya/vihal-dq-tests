@@ -1,12 +1,12 @@
 
 // print implementation using the console uart
 
-func Print(fmt : rostr) [[overload]]
-func Print(fmt : rostr, args : []anyvalue) [[overload]]
-func PrintLn() [[overload]]
-func PrintLn(fmt : rostr) [[overload]]
-func PrintLn(fmt : rostr, args : []anyvalue) [[overload]]
-func PrintFlush()
+func Print(fmt : rostr) [[overload]] ..
+func Print(fmt : rostr, args : []anyvalue) [[overload]] ..
+func PrintLn() [[overload]] ..
+func PrintLn(fmt : rostr) [[overload]] ..
+func PrintLn(fmt : rostr, args : []anyvalue) [[overload]] ..
+func PrintFlush() ..
 
 implementation
 
