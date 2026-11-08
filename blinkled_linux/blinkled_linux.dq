@@ -1,15 +1,34 @@
 // Blinking led main for multiple boards
 
 use print
+use time
 
 use vihal/platform
 use vihal/hwclk
-use vihal/hwpins
 
-
+use board/board_pins
 
 func *Main():
     PrintLn('Blinkled Linux')
 
     HwClkInit(0, MAX_CLOCK_SPEED)
+    BoardPinsInit()
+
+    var t : float64 = Time()
+    var hbcounter : int = 0
+
+    PrintLn('Entering main loop...')
+
+    led1.Set1()
+    led1.Set0()
+    led1.Set1()
+    led1.Set0()
+
+    while true:
+        ++hbcounter
+        PrintLn('hbcounter = {}', [hbcounter])
+        led1.SetTo(hbcounter & 1)
+        SleepMillis(500)
+        //SleepSecs(0.5)
+    endwhile
 endfunc
