@@ -11,6 +11,9 @@ optlevel  = 0
 lto       = false
 debuginfo = true
 
+// statically linked starts the debug session faster
+static = true
+
 target      = 'armhf-linux'
 packagepath = './boardpkg'
 
