@@ -6,22 +6,7 @@
         "type": "shell",
         "command": "dq-comp blinkled_luckfox_lyra_ultra.dqproj",
         "problemMatcher": [],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        }
-    },
-    {
-        "label": "Deploy blinkled",
-        "dependsOn": "blinkled_linux: LUCKFOX_LYRA_ULTRA",
-        "type": "process",
-        "command": "scp",
-        "args": [
-            "-p",
-            "${workspaceFolder}/${config:dq.debugTarget}",
-            "root@192.168.0.43:/work/blinkled/${config:dq.debugTarget}.new"
-        ],
-        "problemMatcher": []
+        "group": "build"
     }
 ]
 }

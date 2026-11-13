@@ -6,7 +6,7 @@ use time
 use vihal/platform
 use vihal/hwclk
 
-use board/board_pins
+use vihal_board/board_pins
 
 func *Main():
     PrintLn('Blinkled Linux')

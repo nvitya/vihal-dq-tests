@@ -14,7 +14,7 @@ debuginfo = true
 target      = 'arm_m0-bare'
 linkerpath  = '${VIHAL}/core/ld'
 linkoption  = '--gc-sections'
-packagepath = './boardpkg'
+pkg         = 'vihal_board:./vihal_board'
 linkscript  = '${VIHAL}/armm/stm32/f0/STM32F07xxB_ram.ld'
 
 linkoption = '--Map=${PROJECT_NAME}.map'

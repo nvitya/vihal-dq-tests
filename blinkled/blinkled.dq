@@ -7,7 +7,7 @@ use vihal/clockcnt
 use vihal/hwpins
 use vihal/hwclk
 
-use board/board_pins
+use vihal_board/board_pins
 
 var g_hbcnt : int = 0
 

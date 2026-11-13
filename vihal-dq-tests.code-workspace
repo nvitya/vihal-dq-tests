@@ -22,7 +22,9 @@
 		],
 		"dq.languageServerProjects": {
 			"uart": "uart_nucleo_f746.dqproj",
-			"blinkled": "blinkled_nucleo_f746.dqproj"
+			"blinkled": "blinkled_nucleo_f746.dqproj",
+			"blinkled_linux": "blinkled_luckfox_lyra_ultra.dqproj",
+			"vihal": "../blinkled_linux/blinkled_luckfox_lyra_ultra.dqproj"
 		}
 	}
 }

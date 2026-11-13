@@ -6,10 +6,7 @@
         "type": "shell",
         "command": "dq-comp cpuonly_discovery_f072.dqproj",
         "problemMatcher": [],
-        "group": {
-            "kind": "build",
-            "isDefault": false
-        }
+        "group": "build"
     },
     {
         "label": "cpuonly: NUCLEO_F746",
@@ -25,6 +22,13 @@
         "label": "cpuonly: MIBOW_ESP32C3",
         "type": "shell",
         "command": "dq-comp cpuonly_mibow_esp32c3.dqproj",
+        "problemMatcher": [],
+        "group": "build"
+    },
+    {
+        "label": "cpuonly: RPI_PICO",
+        "type": "shell",
+        "command": "dq-comp cpuonly_rpi_pico.dqproj",
         "problemMatcher": [],
         "group": "build"
     }

@@ -14,7 +14,7 @@ debuginfo = true
 // statically linked starts the debug session faster
 static = true
 
-target      = 'armhf-linux'
-packagepath = './boardpkg'
+target = 'armhf-linux'
+pkg    = 'vihal_board:./vihal_board'
 
 define BOARD_LUCKFOX_LYRA_ULTRA

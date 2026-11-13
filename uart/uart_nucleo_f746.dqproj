@@ -15,7 +15,7 @@ exceptions  = false
 target      = 'arm_m7f-bare'
 linkerpath  = '${VIHAL}/core/ld'
 linkoption  = '--gc-sections'
-packagepath = './boardpkg'
+pkg_path    = './boardpkg'
 linkscript  = '${VIHAL}/armm/stm32/f7/STM32F750x8_ram.ld'
 
 linkoption = '--Map=${PROJECT_NAME}.map'

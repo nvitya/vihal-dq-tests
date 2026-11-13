@@ -6,7 +6,7 @@ use vihal/core/platform_init
 use vihal/clockcnt
 use vihal/hwclk
 
-use board/board_pins
+use vihal_board/board_pins
 
 use rtl/mem
 use rtl/strfunc

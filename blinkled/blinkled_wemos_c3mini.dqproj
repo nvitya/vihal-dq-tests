@@ -10,11 +10,10 @@ optlevel  = 0
 lto       = false
 debuginfo = true
 
-define BOARD_WEMOS_C3MINI
-
 target      = 'rv32imac-bare'
 linkerpath  = '${VIHAL}/core/ld'
 linkoption  = '--gc-sections'
-packagepath = './boardpkg'
+pkg         = 'vihal_board:./vihal_board'
 linkscript  = '${VIHAL}/rv32i/esp32/c3/ESP32C3_ram_256-128.ld'
 
+define BOARD_WEMOS_C3MINI

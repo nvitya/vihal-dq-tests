@@ -11,11 +11,10 @@ optlevel  = 0
 lto       = false
 debuginfo = true
 
-define BOARD_RPI_PICO
-
 target      = 'arm_m7f-bare'
 linkerpath  = '${VIHAL}/core/ld'
 linkoption  = '--gc-sections'
-packagepath = './boardpkg'
-linkscript  = '${VIHAL}/armm/stm32/f7/STM32F750x8_ram.ld'
+pkg         = 'vihal_board:./vihal_board'
+linkscript  = '${VIHAL}/armm/rp/_20/RP2040_ram.ld'
 
+define BOARD_RPI_PICO

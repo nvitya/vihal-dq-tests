@@ -24,24 +24,6 @@
                 "starti"
             ],
             "showDevDebugOutput": "raw"
-        },
-        {
-            "name": "blinkled_linux: SSH",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/${config:dq.debugTarget}",
-            "cwd": "${workspaceFolder}",
-            "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch",
-            "preLaunchTask": "Deploy blinkled",
-
-            "debugServerPath": "/usr/bin/ssh",
-            "debugServerArgs": "-T root@192.168.0.43 \"mv -f /work/blinkled/${config:dq.debugTarget}.new /work/blinkled/${config:dq.debugTarget} && exec gdbserver --once :2345 /work/blinkled/${config:dq.debugTarget}\"",
-            "serverStarted": "Listening on port 2345",
-            "filterStderr": true,
-
-            "miDebuggerServerAddress": "192.168.0.43:2345",
-            "launchCompleteCommand": "exec-continue"
         }
     ]
 }

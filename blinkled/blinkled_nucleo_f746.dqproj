@@ -14,7 +14,7 @@ debuginfo = true
 target      = 'arm_m7f-bare'
 linkerpath  = '${VIHAL}/core/ld'
 linkoption  = '--gc-sections'
-packagepath = './boardpkg'
+pkg         = 'vihal_board:./vihal_board'
 linkscript  = '${VIHAL}/armm/stm32/f7/STM32F750x8_ram.ld'
 
 define BOARD_NUCLEO_F746

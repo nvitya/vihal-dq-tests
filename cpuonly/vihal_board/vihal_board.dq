@@ -1,0 +1,7 @@
+// The VIHAL requires this module, at least the MCU registers must be included with "use ... reexport"
+
+// Select the board based on the CPU architecturea and BOARD_XXX define supplied by the .dqproj file:
+#include "vihal/boards_builtin.dqi"
+
+
+

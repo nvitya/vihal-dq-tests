@@ -12,7 +12,7 @@ implementation
 
 use rtl/textformat
 use vihal/hwuart
-use board/board_pins
+use vihal_board/board_pins
 
 object OTextSinkUart(OTextSink):
     uart : OHwUart
