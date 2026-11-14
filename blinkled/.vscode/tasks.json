@@ -6,7 +6,10 @@
         "type": "shell",
         "command": "dq-comp blinkled_nucleo_f746.dqproj",
         "problemMatcher": [],
-        "group": "build"
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
     },
     {
         "label": "blinkled: WEMOS_C3MINI",
