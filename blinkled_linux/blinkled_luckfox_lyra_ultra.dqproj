@@ -2,8 +2,9 @@
 
 var VIHAL = PackagePath('vihal')
 
-main     = 'blinkled_linux.dq'
-output   = '${PROJECT_NAME}'
+main      = 'blinkled_linux.dq'
+output    = '\{PROJECT_NAME}'
+build_tag = '\{PROJECT_NAME}'
 
 link     = true
 

@@ -2,8 +2,9 @@
 
 var VIHAL = PackagePath('vihal')
 
-main     = 'cpuonly.dq'
-output   = '${PROJECT_NAME}.elf'
+main      = 'cpuonly.dq'
+output    = '\{PROJECT_NAME}.elf'
+build_tag = '\{PROJECT_NAME}'
 
 link     = true
 
@@ -12,9 +13,9 @@ lto       = false
 debuginfo = true
 
 target      = 'arm_m7f-bare'
-linkerpath  = '${VIHAL}/core/ld'
+linkerpath  = '\{VIHAL}/core/ld'
 linkoption  = '--gc-sections'
 pkg         = 'vihal_board:./vihal_board'
-linkscript  = '${VIHAL}/armm/rp/_20/RP2040_ram.ld'
+linkscript  = '\{VIHAL}/armm/rp/_20/RP2040_ram.ld'
 
 define BOARD_RPI_PICO

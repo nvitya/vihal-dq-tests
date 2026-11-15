@@ -2,8 +2,9 @@
 
 var VIHAL = PackagePath('vihal')
 
-main     = 'uart.dq'
-output   = '${PROJECT_NAME}.elf'
+main      = 'uart.dq'
+output    = '\{PROJECT_NAME}.elf'
+build_tag = '\{PROJECT_NAME}'
 
 link     = true
 
@@ -13,10 +14,10 @@ debuginfo = true
 
 exceptions  = false
 target      = 'arm_m7f-bare'
-linkerpath  = '${VIHAL}/core/ld'
+linkerpath  = '\{VIHAL}/core/ld'
 linkoption  = '--gc-sections'
 pkg_path    = './boardpkg'
-linkscript  = '${VIHAL}/armm/stm32/f7/STM32F750x8_ram.ld'
+linkscript  = '\{VIHAL}/armm/stm32/f7/STM32F750x8_ram.ld'
 
 linkoption = '--Map=${PROJECT_NAME}.map'
 
