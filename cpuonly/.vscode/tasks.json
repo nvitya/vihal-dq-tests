@@ -6,10 +6,7 @@
         "type": "shell",
         "command": "dq-comp cpuonly_discovery_f072.dqproj",
         "problemMatcher": [],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        }
+        "group": "build"
     },
     {
         "label": "cpuonly: NUCLEO_F746",
