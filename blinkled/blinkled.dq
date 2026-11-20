@@ -3,7 +3,7 @@
 use vihal/platform
 use vihal/core/platform_init
 
-use vihal/clockcnt
+use vihal/hwclkcnt
 use vihal/hwpins
 use vihal/hwclk
 

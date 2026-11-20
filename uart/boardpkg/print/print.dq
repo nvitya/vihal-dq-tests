@@ -2,10 +2,10 @@
 // print implementation using the console uart
 
 func Print(fmt : rostr) [[overload]] ..
-func Print(fmt : rostr, args : []anyvalue) [[overload]] ..
+func Print(fmt : rostr, args : varargs) [[overload]] ..
 func PrintLn() [[overload]] ..
 func PrintLn(fmt : rostr) [[overload]] ..
-func PrintLn(fmt : rostr, args : []anyvalue) [[overload]] ..
+func PrintLn(fmt : rostr, args : varargs) [[overload]] ..
 func PrintFlush() ..
 
 implementation
@@ -40,7 +40,7 @@ func Print(fmt : rostr) [[overload]]:
     conuart_sink.Write(fmt)
 endfunc
 
-func Print(fmt : rostr, args : []anyvalue) [[overload]]:
+func Print(fmt : rostr, args : varargs) [[overload]]:
     conuart_formatter.Format(fmt, args)
 endfunc
 
@@ -55,7 +55,7 @@ func PrintLn(fmt : rostr) [[overload]]:
     conuart_sink.WriteChar('\n')
 endfunc
 
-func PrintLn(fmt : rostr, args : []anyvalue) [[overload]]:
+func PrintLn(fmt : rostr, args : varargs) [[overload]]:
     conuart_formatter.Format(fmt, args)
     conuart_sink.WriteChar('\r')
     conuart_sink.WriteChar('\n')

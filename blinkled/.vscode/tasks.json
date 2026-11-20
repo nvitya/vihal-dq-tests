@@ -2,6 +2,19 @@
   "version": "2.0.0",
   "tasks": [
     {
+        "label": "blinkled: MIN_F103",
+        "type": "shell",
+        "command": "dq-comp",
+        "args": [
+            "blinkled_min_f103.dqproj"
+        ],
+        "problemMatcher": "$dq",
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+    },
+    {
         "label": "blinkled: NUCLEO_F746",
         "type": "shell",
         "command": "dq-comp blinkled_nucleo_f746.dqproj",

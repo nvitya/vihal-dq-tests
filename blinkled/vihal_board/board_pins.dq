@@ -3,8 +3,20 @@
 //use vihal/clockcnt
 use vihal/hwpins
 
+#{if Defined(BOARD_MIN_F103) or Defined(BOARD_MIN_F401) or Defined(BOARD_MIN_F411)
+     or Defined(BOARD_MIBO48_STM32F303) or Defined(BOARD_MIBO64_STM32F405) or Defined(BOARD_MIBO48_STM32G473)
+}
 
-#ifdef BOARD_NUCLEO_F746
+const LED_COUNT : int = 1
+
+var led1 <- OGpioPin(PORTNUM_C, 13, false)
+
+func BoardPinsInit():
+    led1.Setup(PINCFG_OUTPUT)
+endfunc
+
+
+#elifdef BOARD_NUCLEO_F746
 
 const LED_COUNT : int = 3
 

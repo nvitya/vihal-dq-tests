@@ -18,6 +18,6 @@ linkoption  = '--gc-sections'
 pkg         = 'vihal_board:./vihal_board'
 linkscript  = '\{VIHAL}/armm/stm32/f0/STM32F07xxB_ram.ld'
 
-linkoption = '--Map=${PROJECT_NAME}.map'
+linkoption = '--Map=\{PROJECT_NAME}.map'
 
 define BOARD_DISCOVERY_F072
